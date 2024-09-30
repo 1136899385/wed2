@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./crowdfunding_db');
+const User = require('./models/User')(); 
+const passport = require('passport');
 
 // 获取所有活跃的筹款活动
 router.get('/fundraisers', async (req, res) => {
@@ -113,19 +115,5 @@ router.get('/search', async (req, res) => {
   }
 });
 
-// 处理捐赠
-router.post('/fundraisers/:id/donate', async (req, res) => {
-  const { id } = req.params; // 从路由参数获取筹款活动ID
-  const { amount } = req.body; // 从请求体获取捐赠金额
-  try {
-    const connection = await db.getConnection();
-    await connection.execute('UPDATE FUNDRAISER SET CURRENT_FUNDING = CURRENT_FUNDING + ? WHERE FUNDRAISER_ID = ?', [amount, id]);
-    res.json({ message: 'Donation processed successfully' }); // 捐赠成功后返回响应
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  } finally {
-    connection.release(); // 释放数据库连接
-  }
-});
 
 module.exports = router;

@@ -1,0 +1,18 @@
+.fundraiser-list {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.fundraiser-list h2 {
+  color: #333;
+}
+
+.fundraiser-list-item {
+  list-style: none;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}

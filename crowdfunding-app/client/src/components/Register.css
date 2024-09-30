@@ -1,0 +1,26 @@
+.register {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.register h2 {
+  color: #333;
+}
+
+.register form div {
+  margin-bottom: 10px;
+}
+
+.register form div label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.register form div input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

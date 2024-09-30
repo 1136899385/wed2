@@ -1,0 +1,10 @@
+.fundraiser-detail {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.fundraiser-detail h2 {
+  color: #333;
+}
