@@ -34,3 +34,17 @@
 .fundraiser-info p {
   margin: 5px 0;
 }
+
+.donate-button {
+  margin-top: 10px; 
+  padding: 5px 10px; 
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+}
+
+.donate-button:hover {
+  background-color: #45a049; 
+}

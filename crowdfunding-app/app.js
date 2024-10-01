@@ -1,36 +1,35 @@
-// app.js
+//Main server configuration and routes setup
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = 3001;
 const api = require('./api');
 
-// 允许跨域请求
+// Allow cross-origin requests
 app.use(cors());
 
-// 用于解析 JSON 请求体的中间件
+// Middleware for parsing JSON request bodies
 app.use(express.json());
 
-// 注册 API 路由
+// Register API routes
 app.use('/api', api);
 
-// 测试 API 路由
+// Test API route to ensure everything is working
 app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working' });
 });
 
-// 处理根路径的路由
+// Handle root path route
 app.get('/', (req, res) => {
   res.send('Welcome to the Crowdfunding Platform');
 });
 
+// Start the server and listen on the specified port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
 
-// app.js
-
-//添加一个错误处理中间件：
+// Add an error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');

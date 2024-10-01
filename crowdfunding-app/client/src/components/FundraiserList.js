@@ -1,12 +1,14 @@
-// src/components/FundraiserList.js 显示所有筹款活动组件
+// src/components/FundraiserList.js Component to display a list of all fundraising activities
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './FundraiserList.css'; // 确保 CSS 文件存在并正确导入
+import './FundraiserList.css'; 
 
 function FundraiserList() {
+  // State to hold the list of fundraisers fetched from the API
   const [fundraisers, setFundraisers] = useState([]);
 
+  // Fetch the list of fundraisers when the component mounts
   useEffect(() => {
     axios.get('/api/fundraisers')
       .then(response => {
@@ -15,8 +17,14 @@ function FundraiserList() {
       .catch(error => {
         console.error('Error fetching fundraisers:', error);
       });
-  }, []);
+  }, []); // Run this effect only once on mount due to empty dependency array
 
+  // Function to display alert message when donation button is clicked
+  const handleDonate = () => {
+    alert('This feature is under construction.');
+  };
+
+  // Render the list of fundraisers
   return (
     <div className="fundraiser-list">
       <h2>Active Fundraisers</h2>
@@ -32,6 +40,8 @@ function FundraiserList() {
               <p>Current Funding: {fundraiser.CURRENT_FUNDING}</p>
               <p>City: {fundraiser.CITY}</p>
             </div>
+            {/* Donation button */}
+            <button onClick={handleDonate} className="donate-button">Donate</button>
           </li>
         ))}
       </ul>
@@ -39,4 +49,5 @@ function FundraiserList() {
   );
 }
 
+// Exporting the component so it can be used in other parts of the application
 export default FundraiserList;
