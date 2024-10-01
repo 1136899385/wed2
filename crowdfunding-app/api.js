@@ -2,8 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./crowdfunding_db');
-const User = require('./models/User')(); 
-const passport = require('passport');
 
 // 获取所有活跃的筹款活动
 router.get('/fundraisers', async (req, res) => {
@@ -89,17 +87,13 @@ router.get('/categories', async (req, res) => {
 
 // 搜索筹款活动
 router.get('/search', async (req, res) => {
-  const { organizer, city, categoryId } = req.query; // 从查询参数获取搜索条件
+  const { organizer, categoryId } = req.query; // 从查询参数获取搜索条件
   let sql = 'SELECT * FROM FUNDRAISER WHERE ACTIVE = 1';
   const params = [];
 
   if (organizer) {
-    sql += ' AND ORGANIZER = ?';
-    params.push(organizer);
-  }
-  if (city) {
-    sql += ' AND CITY = ?';
-    params.push(city);
+    sql += ' AND ORGANIZER LIKE ?';
+    params.push(`%${organizer}%`);
   }
   if (categoryId) {
     sql += ' AND CATEGORY_ID = ?';
@@ -111,9 +105,9 @@ router.get('/search', async (req, res) => {
     const [rows] = await connection.execute(sql, params);
     res.json(rows); // 响应搜索结果
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(`Error during search: ${err.message}`);
+    res.status(500).json({ error: 'Failed to fetch search results' });
   }
 });
-
 
 module.exports = router;

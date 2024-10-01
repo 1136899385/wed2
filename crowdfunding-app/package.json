@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"npm run start-front\" \"npm run start-back\"",
+    "start-front": "node app.js",
+    "start-back": "cd client && npm start --port 3001"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +25,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
 }

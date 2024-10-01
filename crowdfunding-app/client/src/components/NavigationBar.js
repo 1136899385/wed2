@@ -6,18 +6,18 @@ import './NavigationBar.css';
 function NavigationBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">
-        Crowdfunding Platform
-      </Link>
+      
+       CROWDFUNDING PLATFORM
+      
       <div>
         <Link className="nav-link" to="/">
           Home
         </Link>
-        <Link className="nav-link" to="/login">
-          Login
+        <Link className="nav-link" to="/fundraisers">
+         Fundraiser
         </Link>
-        <Link className="nav-link" to="/register">
-          Register
+        <Link className="nav-link" to="/search">
+         Search
         </Link>
       </div>
     </nav>

@@ -1,0 +1,25 @@
+.search-page {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .search-page input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px;
+  }
+  
+  .search-page button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .search-results {
+    margin-top: 20px;
+  }
+  
+  .search-result {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+  }

@@ -29,6 +29,7 @@ function FundraiserDetail() {
       <p>Target Funding: {fundraiser.TARGET_FUNDING}</p>
       <p>Current Funding: {fundraiser.CURRENT_FUNDING}</p>
       <p>City: {fundraiser.CITY}</p>
+      <p>ID: {fundraiser.CATEGORY_ID}</p>
     </div>
   );
 }
